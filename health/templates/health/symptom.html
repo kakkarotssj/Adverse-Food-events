@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<title>DIAGNOSE PAGE</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
+<style>
+body, html {height: 100%}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Amatic SC", sans-serif}
+.menu {display: none}
+.bgimg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("/w3images/pizza.jpg");
+    min-height: 90%;
+}
+input[type=text] {
+    width: 300px;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 400px;
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top w3-hide-small">
+  <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar" data-hover="LOGOUT">
+    <div class="w3-bar-item">NAME</div>  
+    <div class="w3-right">
+      <a href="/Users/rdrl/Downloads/temp2.html" class="w3-bar-item w3-button">LOGOUT</a>
+    </div>
+  </div>
+</div>
+  
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <img class="w3-image" src="/static/health/pizza.jpg" alt="The Hotel" style="width:100% ">
+  <div class="w3-display-middle w3-center">
+   <input class="w3-input w3-black w3-xxlarge w3-hover-opacity" type="text" name="search" placeholder="Search for Symptomps.." required="required">
+   <button class="w3-button w3-black w3-hover-opacity" type="submit" onclick="document.getElementById('search_result').style.display='block'"><i class="fa fa-search w3-margin-right w3-wide"></i>SEARCH</button>
+  </div>
+</header>
+
+<!-- Search result modal -->
+<div id="search_result" class="w3-modal w3-animate-zoom ">
+  <div class="w3-modal-content w3-card-4" style="padding:32px">
+    <div class="w3-container w3-white">
+      <i onclick="document.getElementById('search_result').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
+      <h1 class="w3-wide ">HELLO NAME</h1>
+      <p><h2>Following are the products you should avoid</h2></p>
+      <ul class="w3-ul w3-large">
+       <li>Jill</li>
+       <li>Eve</li>
+       <li>Adam</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
