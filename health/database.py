@@ -3,7 +3,7 @@ import csv
 
 class Database:
 	def __init__(self):
-		filepath = "/Users/sid/Downloads/adverse-food-events/CAERS_ASCII_2004_2017Q2.csv"
+		filepath = "CAERS_ASCII_2004_2017Q2.csv"
 
 		self.d = {}
 
@@ -26,3 +26,6 @@ class Database:
 	def get_data(self):
 		return self.d
 
+a = Database()
+temp = a.get_data()
+print temp

@@ -86,18 +86,20 @@ html,body,h1,h2,h3,h4 {font-family:"Inconsolata", sans-serif}
       <i onclick="document.getElementById('diagnose').style.display='none'" class="fa fa-remove w3-transparent w3-button w3-xlarge w3-right"></i>
       <h2 class="w3-wide">REGISTER</h2>
       <p>Fill in your credentials for future references.</p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter First Name" name="first_name" required></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Enter Last Name" name="last_name" required></p>
+      <form action="register" method="POST">{% csrf_token %}
+      <p><input class="w3-input w3-border" type="text" placeholder="Enter First Name" name="First_Name" value="{{form.First_Name}}" required></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Enter Last Name" name="Last_Name"  value="{{form.Last_Name}}" required></p>
       <p><div class="select-style w3-border">
-          <select name="gender" required>
+          <select name="Gender" required>
             <option selected="selected" value="gender"><i class="fa fa-caret-down w3-right"></i>Gender</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-            <option value="other">Other</option>
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+            <option value="Other">Other</option>
           </select>
       </div>
         </p>
-      <button type="button" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom" onclick="location.href = '/Users/rdrl/Downloads/temp3.html'">Submit</button>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Submit</button>
+    </form>
     </div>
   </div>
 </div>

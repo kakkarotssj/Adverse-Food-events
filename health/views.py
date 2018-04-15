@@ -3,7 +3,9 @@ from django.http import HttpResponseRedirect
 import csv
 from . import database
 import threading
-
+from .forms import RegForm
+from django.template import loader
+from django.http import HttpResponse
 # Create your views here
 
 
@@ -46,19 +48,39 @@ def symptom(request):
 	# print (db['RASH'][1:])
 
 	context = {}
-	# context['rash'] = db['RASH']
-
+	name = request.session['temp']
+	context['name'] = name
+	print name
 	if request.method == "POST":
 		load_database = LoadDatabase()
 		load_database.start()
 		db = load_database.get_thread_data()
 
 		result = db[request.POST.get('search_symptom', False)][1:]
-
+		print result
 		context['results'] = result
-		return render(request, 'health/symptom.html', context)
+		
+		return render(request, 'health/symptom.html',context)
+	return render(request, 'health/symptom.html',context)
 		# return HttpResponseRedirect('/symptom')
 
 
 
 	return render(request, 'health/symptom.html', context)
+
+def register(request):
+
+	if request.method == 'POST':
+		ans = request.POST.get('First_Name')
+		ans1 = request.POST.get('Last_Name')
+		request.session['temp'] = ans
+		form = RegForm(request.POST)
+		print form
+		if form.is_valid():
+			print "Hello"
+			form.save()
+			return HttpResponseRedirect('/symptom')
+
+	else:
+		form = RegForm()
+	return render(request,'health/index.html')
